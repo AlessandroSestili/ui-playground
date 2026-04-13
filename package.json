@@ -24,5 +24,8 @@
     "react-dom": "^19.2.5",
     "tailwindcss": "^4.2.2",
     "three": "^0.183.2"
+  },
+  "devDependencies": {
+    "vercel": "^51.1.0"
   }
 }
