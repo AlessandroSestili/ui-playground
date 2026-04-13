@@ -26,10 +26,22 @@ const githubBase = 'https://github.com/AlessandroSestili/ui-playground/blob/main
     <!-- Back nav -->
     <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4"
          style="background: rgba(5, 5, 16, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05);">
-      <a href="/" class="flex items-center gap-3 group">
-        <span class="text-slate-400 group-hover:text-white transition-colors duration-200 text-sm">←</span>
-        <span class="font-mono text-xs text-slate-500 group-hover:text-slate-300 transition-colors duration-200 uppercase tracking-widest">UI Playground</span>
-      </a>
+      <div class="flex items-center gap-3">
+        <a
+          href="https://portfolio-alessandrosestili.vercel.app"
+          class="flex items-center gap-1.5 group"
+          title="Back to Portfolio"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-500 group-hover:text-violet-400 transition-colors duration-200">
+            <path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/>
+          </svg>
+          <span class="font-mono text-xs text-slate-500 group-hover:text-violet-400 transition-colors duration-200">Portfolio</span>
+        </a>
+        <span class="text-slate-700 text-xs">/</span>
+        <a href="/" class="flex items-center gap-2 group">
+          <span class="font-mono text-xs text-slate-500 group-hover:text-slate-300 transition-colors duration-200 uppercase tracking-widest">UI Playground</span>
+        </a>
+      </div>
 
       <div class="flex items-center gap-4">
         <div class="flex gap-2">
