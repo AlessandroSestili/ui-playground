@@ -1,0 +1,14 @@
+---
+import ExperimentLayout from '../../layouts/ExperimentLayout.astro';
+import PageTransitionDemo from '../../components/PageTransitionDemo.tsx';
+---
+
+<ExperimentLayout
+  title="Page Transition"
+  number="03"
+  description="Neon mask that covers and uncovers the screen during navigation. Fluid and dramatic."
+  tags={["Framer Motion", "View Transitions"]}
+  githubPath="page-transition.astro"
+>
+  <PageTransitionDemo client:load />
+</ExperimentLayout>

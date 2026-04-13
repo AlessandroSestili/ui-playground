@@ -1,0 +1,361 @@
+---
+import ExperimentLayout from '../../layouts/ExperimentLayout.astro';
+---
+
+<ExperimentLayout
+  title="CSS Magic"
+  number="06"
+  description="Complex visual effect built entirely in pure CSS. Zero JavaScript. Deep mastery."
+  tags={["CSS Animations", "Keyframes", "Custom Props"]}
+  githubPath="css-magic.astro"
+>
+  <p style="color: #64748b; font-family: 'Space Mono', monospace; font-size: 13px; margin-bottom: 48px;">
+    100% CSS. No JavaScript. Pure keyframes, custom properties, and animation composition.
+  </p>
+
+  <!-- Experiment 1: Neon rings -->
+  <section class="css-section">
+    <p class="css-label" style="color: #a78bfa;">01 — Neon orbit rings</p>
+    <div class="orbit-container">
+      <div class="orbit-ring ring-1"></div>
+      <div class="orbit-ring ring-2"></div>
+      <div class="orbit-ring ring-3"></div>
+      <div class="orbit-ring ring-4"></div>
+      <div class="core"></div>
+    </div>
+  </section>
+
+  <!-- Experiment 2: Gradient text wave -->
+  <section class="css-section">
+    <p class="css-label" style="color: #22d3ee;">02 — Gradient text wave</p>
+    <div class="text-wave">
+      <span class="wave-char" style="--i:0">C</span>
+      <span class="wave-char" style="--i:1">S</span>
+      <span class="wave-char" style="--i:2">S</span>
+      <span class="wave-char" style="--i:3">&nbsp;</span>
+      <span class="wave-char" style="--i:4">M</span>
+      <span class="wave-char" style="--i:5">A</span>
+      <span class="wave-char" style="--i:6">G</span>
+      <span class="wave-char" style="--i:7">I</span>
+      <span class="wave-char" style="--i:8">C</span>
+    </div>
+  </section>
+
+  <!-- Experiment 3: Neon border loader -->
+  <section class="css-section">
+    <p class="css-label" style="color: #fbbf24;">03 — Conic gradient loader</p>
+    <div class="loader-wrap">
+      <div class="conic-loader">
+        <div class="conic-inner"></div>
+      </div>
+      <div class="conic-loader conic-loader--2">
+        <div class="conic-inner"></div>
+      </div>
+      <div class="conic-loader conic-loader--3">
+        <div class="conic-inner"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiment 4: Holographic card -->
+  <section class="css-section">
+    <p class="css-label" style="color: #a78bfa;">04 — Holographic card</p>
+    <p style="color: #475569; font-size: 13px; margin-bottom: 24px; font-family: 'Space Mono', monospace;">Hover over the card</p>
+    <div class="holo-card">
+      <div class="holo-shine"></div>
+      <div class="holo-content">
+        <p style="font-family: 'Space Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.15em;">Senior Developer</p>
+        <p style="font-size: 22px; font-weight: 700; color: white; margin-bottom: 4px;">Alessandro Sestili</p>
+        <p style="font-size: 13px; color: rgba(255,255,255,0.4);">Front End Engineer</p>
+        <div class="holo-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiment 5: Glitch text -->
+  <section class="css-section">
+    <p class="css-label" style="color: #22d3ee;">05 — CSS glitch effect</p>
+    <div class="glitch-wrap">
+      <h3 class="glitch" data-text="GLITCH">GLITCH</h3>
+    </div>
+  </section>
+
+  <!-- Explanation -->
+  <div style="margin-top: 64px; padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px;">
+    <p style="color: #475569; font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">Techniques used</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      {[
+        ['@keyframes', 'Multi-step animation sequences with custom easing'],
+        ['conic-gradient()', 'Conical gradients as spinner masks'],
+        ['CSS custom properties', '--i counter for staggered delays without JS'],
+        ['clip-path', 'Precise shape masking for glitch offset'],
+        ['animation-composition', 'Multiple animations on one element'],
+        ['::before / ::after', 'Zero extra HTML — pseudo-elements do the work'],
+      ].map(([term, desc]) => (
+        <div style="padding: 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); border-radius: 10px;">
+          <code style="color: #a78bfa; font-family: 'Space Mono', monospace; font-size: 11px; display: block; margin-bottom: 6px;">{term}</code>
+          <span style="color: #475569; font-size: 12px; line-height: 1.5;">{desc}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</ExperimentLayout>
+
+<style>
+  .css-section {
+    margin-bottom: 72px;
+  }
+
+  .css-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 32px;
+  }
+
+  /* ── Orbit rings ── */
+  .orbit-container {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: transparent;
+  }
+
+  .ring-1 {
+    width: 240px; height: 240px;
+    border-top-color: #7C3AED;
+    border-width: 2px;
+    animation: spin-cw 3s linear infinite;
+    box-shadow: 0 0 12px #7C3AED50;
+  }
+  .ring-2 {
+    width: 190px; height: 190px;
+    border-right-color: #06B6D4;
+    border-width: 2px;
+    animation: spin-ccw 2s linear infinite;
+    box-shadow: 0 0 12px #06B6D450;
+  }
+  .ring-3 {
+    width: 140px; height: 140px;
+    border-bottom-color: #F59E0B;
+    border-width: 2px;
+    animation: spin-cw 1.5s linear infinite;
+    box-shadow: 0 0 12px #F59E0B50;
+  }
+  .ring-4 {
+    width: 90px; height: 90px;
+    border-left-color: #EC4899;
+    border-width: 2px;
+    animation: spin-ccw 1s linear infinite;
+    box-shadow: 0 0 12px #EC489950;
+  }
+  .core {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 20px white, 0 0 40px white;
+    animation: core-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes spin-cw  { to { transform: rotate(360deg);  } }
+  @keyframes spin-ccw { to { transform: rotate(-360deg); } }
+  @keyframes core-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+  }
+
+  /* ── Text wave ── */
+  .text-wave {
+    display: flex;
+    gap: 2px;
+    font-size: 64px;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .wave-char {
+    display: inline-block;
+    background: linear-gradient(135deg, #7C3AED, #06B6D4, #F59E0B);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: wave-float 2s ease-in-out infinite, gradient-shift 3s ease infinite;
+    animation-delay: calc(var(--i) * 0.1s), calc(var(--i) * 0.2s);
+  }
+
+  @keyframes wave-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-16px); }
+  }
+
+  /* ── Conic loaders ── */
+  .loader-wrap {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .conic-loader {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #7C3AED, #06B6D4, #F59E0B, #7C3AED);
+    animation: spin-cw 1s linear infinite;
+  }
+  .conic-loader--2 {
+    width: 60px; height: 60px;
+    background: conic-gradient(from 0deg, #06B6D4, transparent 60%, #06B6D4);
+    animation-duration: 0.7s;
+  }
+  .conic-loader--3 {
+    width: 100px; height: 100px;
+    background: conic-gradient(from 0deg, #F59E0B 30%, transparent 70%);
+    animation-duration: 1.4s;
+  }
+
+  .conic-inner {
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: #050510;
+  }
+
+  /* ── Holographic card ── */
+  .holo-card {
+    position: relative;
+    width: 320px;
+    height: 180px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .holo-card:hover {
+    transform: perspective(600px) rotateY(8deg) rotateX(-4deg) scale(1.02);
+  }
+
+  .holo-shine {
+    position: absolute;
+    inset: -50%;
+    background: conic-gradient(
+      from 0deg at 50% 50%,
+      #7C3AED20,
+      #06B6D420,
+      #F59E0B20,
+      #EC489920,
+      #7C3AED20
+    );
+    animation: spin-cw 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .holo-card:hover .holo-shine {
+    opacity: 1;
+  }
+
+  .holo-content {
+    position: relative;
+    z-index: 1;
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .holo-dots {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 6px;
+  }
+
+  .holo-dots::before,
+  .holo-dots::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* ── Glitch ── */
+  .glitch-wrap {
+    overflow: hidden;
+  }
+
+  .glitch {
+    position: relative;
+    font-size: 72px;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    color: white;
+    letter-spacing: 0.05em;
+    animation: glitch-main 4s infinite;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    color: #06B6D4;
+    animation: glitch-before 4s infinite;
+    clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+    transform: translateX(-3px);
+  }
+
+  .glitch::after {
+    color: #F59E0B;
+    animation: glitch-after 4s infinite;
+    clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+    transform: translateX(3px);
+  }
+
+  @keyframes glitch-main {
+    0%, 85%, 100% { transform: none; }
+    86% { transform: skewX(-2deg); }
+    87% { transform: skewX(2deg); }
+    88% { transform: none; }
+    92% { transform: skewX(-1deg); }
+    93% { transform: none; }
+  }
+
+  @keyframes glitch-before {
+    0%, 85%, 100% { transform: translateX(-3px); opacity: 0; }
+    86% { transform: translateX(-6px); opacity: 1; }
+    88% { transform: translateX(3px); opacity: 1; }
+    90% { transform: translateX(-3px); opacity: 0; }
+  }
+
+  @keyframes glitch-after {
+    0%, 85%, 100% { transform: translateX(3px); opacity: 0; }
+    87% { transform: translateX(6px); opacity: 1; }
+    89% { transform: translateX(-3px); opacity: 1; }
+    91% { transform: translateX(3px); opacity: 0; }
+  }
+</style>

@@ -1,0 +1,14 @@
+---
+import ExperimentLayout from '../../layouts/ExperimentLayout.astro';
+import InteractiveForm from '../../components/InteractiveForm.tsx';
+---
+
+<ExperimentLayout
+  title="Interactive Form"
+  number="04"
+  description="Every field has its own personality — floating labels, animated borders, loading states."
+  tags={["React", "CSS Animations", "Form States"]}
+  githubPath="interactive-form.astro"
+>
+  <InteractiveForm client:load />
+</ExperimentLayout>

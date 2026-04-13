@@ -1,0 +1,22 @@
+---
+import ExperimentLayout from '../../layouts/ExperimentLayout.astro';
+import MagneticCursor from '../../components/MagneticCursor.tsx';
+---
+
+<ExperimentLayout
+  title="Magnetic Cursor"
+  number="01"
+  description="Custom cursor that magnetically attracts interactive elements — gravity-defying UX."
+  tags={["React", "CSS Props", "mousemove"]}
+  githubPath="magnetic-cursor.astro"
+>
+  <div style="cursor: none;">
+    <MagneticCursor client:load />
+  </div>
+</ExperimentLayout>
+
+<style>
+  body {
+    cursor: none;
+  }
+</style>

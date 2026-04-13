@@ -1,0 +1,14 @@
+---
+import ExperimentLayout from '../../layouts/ExperimentLayout.astro';
+import Scene3D from '../../components/Scene3D.tsx';
+---
+
+<ExperimentLayout
+  title="3D Scene"
+  number="05"
+  description="Three.js geometry that rotates and follows your cursor in 3D space. Immersive."
+  tags={["Three.js", "React Three Fiber", "mousemove"]}
+  githubPath="3d-scene.astro"
+>
+  <Scene3D client:load />
+</ExperimentLayout>
